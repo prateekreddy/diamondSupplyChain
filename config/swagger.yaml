@@ -1,0 +1,340 @@
+swagger: "2.0"
+info:
+  description: "This is a server for tracking diamonds with blockchain"
+  version: "1.0.0"
+  title: "Diamond Tracking"
+host: "localhost:3000"
+basePath: "/v1"
+schemes:
+- "http"
+paths:
+  /controller/create/mine:
+    post:
+      summary: "Add a new operator in the diamond supplychain"
+      description: ""
+      parameters: 
+      - in: "body"
+        name: "mine"
+        description: "This can be either mine or processing center or certifier or jeweler"
+        required: true
+        schema:
+          $ref: "#/definitions/Mine"
+      responses:
+        405:
+          description: "Invalid input"
+  /controller/create/pc:
+    post:
+      summary: "Add a new operator in the diamond supplychain"
+      description: ""
+      parameters: 
+      - in: "body"
+        name: "pc"
+        description: "This can be either mine or processing center or certifier or jeweler"
+        required: true
+        schema:
+          $ref: "#/definitions/PC"
+      responses:
+        405:
+          description: "Invalid input"
+  /controller/create/certifier:
+    post:
+      summary: "Add a new operator in the diamond supplychain"
+      description: ""
+      parameters: 
+      - in: "body"
+        name: "certifier"
+        description: "This can be either mine or processing center or certifier or jeweler"
+        required: true
+        schema:
+          $ref: "#/definitions/Certifier"
+      responses:
+        405:
+          description: "Invalid input"
+  /controller/create/jeweler:
+    post:
+      summary: "Add a new operator in the diamond supplychain"
+      description: ""
+      parameters: 
+      - in: "body"
+        name: "jeweler"
+        description: "This can be either mine or processing center or certifier or jeweler"
+        required: true
+        schema:
+          $ref: "#/definitions/Jeweler"
+      responses:
+        405:
+          description: "Invalid input"
+  /mine/foundOre:
+    post:
+      summary: "Add a new found ore by the mine"
+      description: ""
+      parameters: 
+      - in: "body"
+        name: "oreParams"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/Ore"
+      responses:
+        405:
+          description: "Invalid input"
+  /mine/processOre:
+    get:
+      summary: "send ore to processing center to process ore into diamonds"
+      description: ""
+      parameters: 
+      - in: "query"
+        name: "oreId"
+        description: ""
+        required: true
+        type: string
+      - in: "query"
+        name: "pcId"
+        description: ""
+        required: true
+        type: string
+      - in: "query"
+        name: "mineId"
+        description: ""
+        required: true
+        type: string
+      - in: "query"
+        name: "userAddress"
+        required: true
+        type: "string"
+      responses:
+        405: 
+          description: "Invalid input"
+  
+  /pc/addDiamond:
+    post:
+      summary: "Add record of a diamond extracted from ore."
+      description: ""
+      parameters: 
+      - in: "body"
+        name: "diamondParams"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/Diamond"
+      responses:
+        405: 
+          description: "Invalid input"
+  /pc/oreProcessed:
+    get:
+      summary: "record that ore is processed and diamonds are extracted by the processing center"
+      description: ""
+      parameters: 
+      - in: "query"
+        name: "oreId"
+        description: ""
+        required: true
+        type: string
+      - in: "query"
+        name: "pcId"
+        description: ""
+        required: true
+        type: string
+      - in: "query"
+        name: "userAddress"
+        required: true
+        type: string
+      responses:
+        405: 
+          description: "Invalid input"
+  /certifier/certify:
+    get:
+      summary: "certify that diamond description matches the physical diamond"
+      description: ""
+      parameters: 
+      - in: "query"
+        name: "diamondId"
+        required: true
+        type: string
+      - in: "query"
+        name: "certifierId"
+        required: true
+        type: string
+      - in: "query"
+        name: "isCertified"
+        required: true
+        type: boolean
+      - in: "query"
+        name: "userAddress"
+        required: true
+        type: string
+      responses:
+        405:
+          description: "Invalid input"
+  /util/getUniqueId:
+    get:
+      summary: "generates an unique id"
+      responses:
+        405:
+          description: "Invalid input"
+  /pc/sendToJeweler:
+    get:
+      summary: "send a diamond to jeweler"
+      parameters:
+      - in: "query"
+        name: "pcId"
+        required: true
+        type: string
+      - in: "query"
+        name: "diamondId"
+        required: true
+        type: string
+      - in: "query"
+        name: "jewelerId"
+        required: true
+        type: string
+      - in: "query"
+        name: "userAddress"
+        required: true
+        type: string
+      responses:
+        405:
+          description: "Invalid input"
+  /jeweler/verifyDiamond:
+    get:
+      summary: "jeweler verified the diamond against the data present on ledger"
+      parameters:
+      - in: "query"
+        name: "jewelerId"
+        required: true
+        type: string
+      - in: "query"
+        name: "diamondId"
+        required: true
+        type: string
+      - in: "query"
+        name: "isVerified"
+        required: true
+        type: boolean
+      - in: "query"
+        name: "userAddress"
+        required: true
+        type: string
+      responses:
+        405:
+          description: "Invalid input"
+  /jeweler/sellDiamond:
+    get:
+      summary: "Jeweler sells diamonds to customers"
+      parameters:
+        - in: "query"
+          name: "jewelerId"
+          required: true
+          type: string
+        - in: "query"
+          name: "diamondId"
+          required: true
+          type: string
+        - in: "query"
+          name: "userAddress"
+          required: true
+          type: string
+      responses:
+        405:
+          description: "Invalid input"
+  /util/getAddressById:
+    get:
+      summary: "get contract address of the actor by specifying their Id"
+      parameters:
+        - in: "query"
+          name: "idType"
+          required: true
+          type: string
+        - in: "query"
+          name: "id"
+          required: true
+          type: string
+      responses:
+        405:
+          description: "Invalid input"
+  /user/getDiamond:
+    get:
+      summary: "get details about a diamond"
+      parameters:
+        - in: "query"
+          name: "diamondId"
+          required: true
+          type: string
+      responses:
+        405:
+          description: "Invalid input"
+  /user/getOre:
+      get:
+        summary: "get detauls about a ore"
+        parameters:
+          - in: "query"
+            name: "oreId"
+            required: true
+            type: string
+        responses:
+            200:
+              description: "successfully retrieved ore details"
+  
+definitions:
+  Mine:
+    type: "object"
+    properties:
+      id:
+        type: string
+      location:
+        type: string
+      admin:
+        type: string
+  Ore:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      mineId:
+        type: "string"
+      clarity:
+        type: "number"
+      caratWeight:
+        type: "number"
+      userAddress:
+        type: "string"
+  PC:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      admin:
+        type: "string"
+  Certifier:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      admin:
+        type: "string"
+  Jeweler:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      admin:
+        type: "string"
+  Diamond:
+    type: "object"
+    properties:
+      oreId:
+        type: "string"
+      caratWeight:
+        type: number
+      clarity:
+        type: number
+      color:
+        type: number
+      cut:
+        type: number
+      shape:
+        type: number
+      pcId:
+        type: string
+      userAddress:
+        type: string

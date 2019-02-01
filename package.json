@@ -1,0 +1,39 @@
+{
+    "name": "diamond-supply-chain",
+    "description": "",
+    "version": "1.0.0",
+    "author": "Prateek Reddy <prateekreddyy@gmail.com>",
+    "contributors": [],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/prateekreddy/diamond-supply-chain.git"
+    },
+    "bugs": "http://github.com/prateekreddy/diamond-supply-chain/issues",
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
+    },
+    "dependencies": {
+        "boom": "^7.1.1",
+        "hapi": "^17.0.0",
+        "hapi-openapi": "^1.0.0",
+        "inert": "^5.1.2",
+        "shortid": "^2.2.14",
+        "web3": "1.0.0-beta.35"
+    },
+    "devDependencies": {
+        "eslint": "^2",
+        "tape": "^4",
+        "istanbul": "~0.4.3",
+        "swagmock": "~0.0.2"
+    },
+    "scripts": {
+        "test": "tape 'tests/**/*.js'",
+        "cover": "istanbul cover tape -- 'tests/**/*.js'",
+        "lint": "eslint .",
+        "regenerate": "yo swaggerize:test --framework hapi --apiPath './config/swagger.yaml'"
+    },
+    "generator-swaggerize": {
+        "version": "4.1.0"
+    },
+    "main": "./server"
+}

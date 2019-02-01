@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="controller.css">
+    <title>Processing Center</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Processing Center</h1>
+        <div class="accordion" id="pcActions">
+            <div class="card">
+                <div class="card-header" id="addDiamond">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#diamondCollapse" aria-expanded="true" aria-controls="diamondCollapse">
+                        New Diamond
+                        </button>
+                    </h2>
+                </div>
+            
+                <div id="diamondCollapse" class="collapse" aria-labelledby="addDiamond" data-parent="#pcActions">
+                    <div class="card-body">
+                        <div class="inputWrapper">
+                            <span class="inputTag">Ore ID  </span>
+                            <input type="text" name="oreId" id="oreId">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Processing Center ID </span>
+                            <input type="text" name="pcId" id="pcId">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Clarity </span>
+                            <input type="text" name="clarity" id="clarity">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Carat Weight </span>
+                            <input type="text" name="caratWeight" id="caratWeight">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Color </span>
+                            <input type="text" name="color" id="color">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Cut </span>
+                            <input type="text" name="cut" id="cut">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Shape </span>
+                            <input type="text" name="shape" id="shape">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">User  </span>
+                            <input type="text" name="userAddress" id="userAddress">
+                        </div>
+                        <div class="inputWrapper">
+                            <button class="btn btn-success" id="diamondCreator">Create Diamond</button>
+                        </div>
+                        <div class="response">
+                            <p id="newDiamondMsg"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="oreProcessed">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#oreProcessedCollapse" aria-expanded="false" aria-controls="oreProcessedCollapse">
+                        Completed processing Ore
+                        </button>
+                    </h2>
+                </div>
+                <div id="oreProcessedCollapse" class="collapse" aria-labelledby="oreProcessed" data-parent="#pcActions">
+                    <div class="card-body">
+                        <div class="inputWrapper">
+                            <span class="inputTag">Ore ID  </span>
+                            <input type="text" name="processedOreId" id="processedOreId">
+                        </div>  
+                        <div class="inputWrapper">
+                            <span class="inputTag">Processing Center ID </span>
+                            <input type="text" name="processedPcId" id="processedPcId">
+                        </div>  
+                        <div class="inputWrapper">
+                            <span class="inputTag">User  </span>
+                            <input type="text" name="userAddress" id="processedUserAddress">
+                        </div>
+                        <div class="inputWrapper">
+                            <button class="btn btn-success" id="oreProcesser">Ore Processed</button>
+                        </div>
+                        <div class="response">
+                            <p id="processedOreMsg"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="toJeweler">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#toJewelerCollapse" aria-expanded="false" aria-controls="toJewelerCollapse">
+                        Send Diamond to Jeweler
+                        </button>
+                    </h2>
+                </div>
+                <div id="toJewelerCollapse" class="collapse" aria-labelledby="toJeweler" data-parent="#pcActions">
+                    <div class="card-body">
+                        <div class="inputWrapper">
+                            <span class="inputTag">Diamond ID  </span>
+                            <input type="text" name="diamondId" id="jewelerDiamondId">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Jeweler ID  </span>
+                            <input type="text" name="jewelerId" id="jewelerId">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Processing Center ID </span>
+                            <input type="text" name="jewelerPcId" id="jewelerPcId">
+                        </div>  
+                        <div class="inputWrapper">
+                            <span class="inputTag">User  </span>
+                            <input type="text" name="userAddress" id="toJewelerUserAddress">
+                        </div>
+                        <div class="inputWrapper">
+                            <button class="btn btn-success" id="jewelerSender">Send to Jeweler</button>
+                        </div>
+                        <div class="response">
+                            <p id="toJewelerMsg"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="lib/jquery-3.3.1.js"></script>
+<script src="lib/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="processingCenter.js"></script>
+</html>

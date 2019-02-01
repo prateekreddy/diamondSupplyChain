@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="controller.css">
+    <title>Controller</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Controller</h1>
+        <div class="accordion" id="createOptions">
+            <div class="card">
+              <div class="card-header" id="mine">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#mineCollapse" aria-expanded="false" aria-controls="mineCollapse">
+                    Create Mine
+                  </button>
+                </h2>
+              </div>
+              <div id="mineCollapse" class="collapse" aria-labelledby="mine" data-parent="#createOptions">
+                <div class="card-body">
+                  <div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">ID  </span>
+                            <input type="text" name="mineId" id="mineId" readonly="readonly">
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Location  </span>
+                            <input class="smInput" type="text" name="mineLocationLat" id="mineLocationLat">
+                            <span class="smInputTag">Lat</span>
+                            <input class="smInput" type="text" name="mineLocationLong" id="mineLocationLong">
+                            <span class="smInputTag">Long</span>
+                        </div>
+                        <div class="inputWrapper">
+                            <span class="inputTag">Admin  </span>
+                            <input type="text" name="mineAdmin" id="mineAdmin">
+                        </div>
+                        <div class="inputWrapper">
+                            <button class="btn btn-success" id="mineCreator">Create Mine</button>
+                        </div>
+                        <div class="response">
+                          <p id="mineMsg"></p>
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="pc">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#pcCollapse" aria-expanded="false" aria-controls="pcCollapse">
+                    Create Processing Center
+                  </button>
+                </h2>
+              </div>
+              <div id="pcCollapse" class="collapse" aria-labelledby="pc" data-parent="#createOptions">
+                <div class="card-body">
+                  <div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">ID  </span>
+                        <input type="text" name="pcId" id="pcId" readonly="readonly">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Admin  </span>
+                        <input type="text" name="pcAdmin" id="pcAdmin">
+                    </div>
+                    <div class="inputWrapper">
+                        <button class="btn btn-success" id="pcCreator">Create Processing Center</button>
+                    </div>
+                    <div class="response">
+                      <p id="pcMsg"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="jeweler">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#jewelerCollapse" aria-expanded="false" aria-controls="jewelerCollapse">
+                    Create Jeweler
+                  </button>
+                </h2>
+              </div>
+              <div id="jewelerCollapse" class="collapse" aria-labelledby="jeweler" data-parent="#createOptions">
+                <div class="card-body">
+                  <div class="card-body">
+                    <div>
+                      <div class="inputWrapper">
+                          <span class="inputTag">ID  </span>
+                          <input type="text" name="jewelerId" id="jewelerId" readonly="readonly">
+                      </div>
+                      <div class="inputWrapper">
+                          <span class="inputTag">Admin  </span>
+                          <input type="text" name="jewelerAdmin" id="jewelerAdmin">
+                      </div>
+                      <div class="inputWrapper">
+                          <button class="btn btn-success" id="jewelerCreator">Create Jeweler</button>
+                      </div>
+                      <div class="response">
+                        <p id="jewelerMsg"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="certifier">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#certifierCollapse" aria-expanded="false" aria-controls="certifierCollapse">
+                    Create Certifier
+                  </button>
+                </h2>
+              </div>
+              <div id="certifierCollapse" class="collapse" aria-labelledby="certifier" data-parent="#createOptions">
+                <div class="card-body">
+                  <div class="card-body">
+                    <div>
+                      <div class="inputWrapper">
+                          <span class="inputTag">ID  </span>
+                          <input type="text" name="certifierId" id="certifierId" readonly="readonly">
+                      </div>
+                      <div class="inputWrapper">
+                          <span class="inputTag">Admin  </span>
+                          <input type="text" name="certifierAdmin" id="certifierAdmin">
+                      </div>
+                      <div class="inputWrapper">
+                          <button class="btn btn-success" id="certifierCreator">Create Certifier</button>
+                      </div>
+                      <div class="response">
+                        <p id="certifierMsg"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</body>
+<script src="lib/jquery-3.3.1.js"></script>
+<script src="lib/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<!-- <script src="./lib/web3.min.js"></script> -->
+<script src="controller.js"></script>
+</html>

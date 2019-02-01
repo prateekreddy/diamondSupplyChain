@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="controller.css">
+    <title>Mine</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Mine</h1>
+        <div class="accordion" id="mineActions">
+            <div class="card">
+                <div class="card-header" id="foundOre">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#foundOreCollapse" aria-expanded="true" aria-controls="foundOreCollapse">
+                        Found New Ore
+                    </button>
+                </h2>
+                </div>
+            
+                <div id="foundOreCollapse" class="collapse" aria-labelledby="headingOne" data-parent="#mineActions">
+                <div class="card-body">
+                    <div class="inputWrapper">
+                        <span class="inputTag">ID  </span>
+                        <input type="text" name="oreId" id="oreId" readonly="readonly">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Mine ID </span>
+                        <input type="text" name="mineId" id="mineId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Clarity </span>
+                        <input type="text" name="clarity" id="clarity">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Carat Weight </span>
+                        <input type="text" name="caratWeight" id="caratWeight">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">User  </span>
+                        <input type="text" name="userAddress" id="userAddress">
+                    </div>
+                    <div class="inputWrapper">
+                        <button class="btn btn-success" id="oreFounder">Add Ore</button>
+                    </div>
+                    <div class="response">
+                        <p id="foundOreMsg"></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="processOre">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#processOreCollapse" aria-expanded="false" aria-controls="processOreCollapse">
+                    Send Ore to processing center
+                    </button>
+                </h2>
+                </div>
+                <div id="processOreCollapse" class="collapse" aria-labelledby="processOre" data-parent="#mineActions">
+                <div class="card-body">
+                    <div class="inputWrapper">
+                        <span class="inputTag">Ore ID  </span>
+                        <input type="text" name="oreId" id="processOreId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Processing Center ID </span>
+                        <input type="text" name="pcId" id="pcId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Mine ID </span>
+                        <input type="text" name="mineId" id="processMineId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">User  </span>
+                        <input type="text" name="userAddress" id="processUserAddress">
+                    </div>
+                    <div class="inputWrapper">
+                        <button class="btn btn-success" id="oreProcesser">Process Ore</button>
+                    </div>
+                    <div class="response">
+                        <p id="processOreMsg"></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- <div class="card">
+                <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Collapsible Group Item #3
+                    </button>
+                </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+                </div>
+            </div> -->
+            </div>
+    </div>
+</body>
+<script src="lib/jquery-3.3.1.js"></script>
+<script src="lib/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="mine.js"></script>
+</html>

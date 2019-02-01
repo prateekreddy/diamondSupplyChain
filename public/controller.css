@@ -1,0 +1,16 @@
+.inputTag {
+    width: 100px;
+    display: inline-block;
+}
+
+.inputWrapper {
+    margin: 10px;
+}
+
+.smInput {
+    width: 50px;
+}
+
+.submitWrapper {
+    
+}

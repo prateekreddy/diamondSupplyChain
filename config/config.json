@@ -1,0 +1,11 @@
+{
+  "node": {
+    "address": "127.0.0.1",
+    "port": 8545
+  },
+  "app": {
+    "controller": "0xCfEB869F69431e42cdB54A4F4f105C19C080A601",
+    "registry": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+    "controllerAdmin": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1"
+  }
+}

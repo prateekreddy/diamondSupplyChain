@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="controller.css">
+    <title>Certifier</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Certifier</h1>
+        <div class="accordion" id="certifierActions">
+            <div class="card">
+                <div class="card-header" id="certify">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#certifyCollapse" aria-expanded="true" aria-controls="certifyCollapse">
+                    Certify Diamond
+                    </button>
+                </h2>
+                </div>
+            
+                <div id="certifyCollapse" class="collapse show" aria-labelledby="certify" data-parent="#certifierActions">
+                <div class="card-body">
+                    <div class="inputWrapper">
+                        <span class="inputTag">Diamond ID  </span>
+                        <input type="text" name="diamondId" id="diamondId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Certifier ID  </span>
+                        <input type="text" name="certifierId" id="certifierId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Certified ?  </span>
+                        <input type="text" name="isCertified" id="isCertified">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">User  </span>
+                        <input type="text" name="userAddress" id="userAddress">
+                    </div>
+                    <div class="inputWrapper">
+                        <button class="btn btn-success" id="certifier">Certify</button>
+                    </div>
+                    <div class="response">
+                        <p id="certifyMsg"></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="lib/jquery-3.3.1.js"></script>
+<script src="lib/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="certifier.js"></script>
+</html>

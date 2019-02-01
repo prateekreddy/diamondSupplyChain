@@ -1,0 +1,1427 @@
+{
+  "contractName": "DiamondRegistry",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "registry",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x7ef50298"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor",
+      "signature": "constructor"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_diamondId",
+          "type": "bytes32"
+        },
+        {
+          "name": "_processingCenterId",
+          "type": "bytes32"
+        },
+        {
+          "name": "_diamondAddress",
+          "type": "address"
+        }
+      ],
+      "name": "addDiamond",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function",
+      "signature": "0xd1c0995c"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506101eb806100606000396000f3fe60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637ef5029814610051578063d1c0995c146100cc575b600080fd5b34801561005d57600080fd5b5061008a6004803603602081101561007457600080fd5b8101908080359060200190929190505050610131565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100d857600080fd5b5061012f600480360360608110156100ef57600080fd5b810190808035906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610164565b005b60016020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b3382826001600087815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505050505056fea165627a7a7230582009e4b07477ece9819ab1c8b0cd58ffc711e971f76f35a761d0f277fd2b01cb130029",
+  "deployedBytecode": "0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680637ef5029814610051578063d1c0995c146100cc575b600080fd5b34801561005d57600080fd5b5061008a6004803603602081101561007457600080fd5b8101908080359060200190929190505050610131565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100d857600080fd5b5061012f600480360360608110156100ef57600080fd5b810190808035906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610164565b005b60016020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b3382826001600087815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505050505056fea165627a7a7230582009e4b07477ece9819ab1c8b0cd58ffc711e971f76f35a761d0f277fd2b01cb130029",
+  "sourceMap": "53:683:3:-;;;418:73;8:9:-1;5:2;;;30:1;27;20:12;5:2;418:73:3;473:10;449;;:35;;;;;;;;;;;;;;;;;;53:683;;;;;;",
+  "deployedSourceMap": "53:683:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;111:43;;8:9:-1;5:2;;;30:1;27;20:12;5:2;111:43:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;111:43:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;501:233;;8:9:-1;5:2;;;30:1;27;20:12;5:2;501:233:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;501:233:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;111:43;;;;;;;;;;;;;;;;;;;;;;:::o;501:233::-;646:10;658:19;712:15;689:8;:20;698:10;689:20;;;;;;;;;;;;:38;;;;;;;;;;;;;;;;;;501:233;;;;;:::o",
+  "source": "pragma solidity ^0.5.0;\n\nimport \"./Controller.sol\";\n\ncontract DiamondRegistry {\n    Controller controller;\n    mapping(bytes32 => address) public registry;\n    \n    modifier onlyValidProcessingCenter(address processingCenter, bytes32 processingCenterId) {\n        // require(processingCenter == controller.processingCenterList(processingCenterId), \"sender is not a valid processing center\");\n        _;\n    }\n    \n    constructor() public {\n        controller = Controller(msg.sender);\n    }\n    \n    function addDiamond(bytes32 _diamondId, bytes32 _processingCenterId, address _diamondAddress) \n        public \n        onlyValidProcessingCenter(msg.sender, _processingCenterId) {\n        registry[_diamondId] = _diamondAddress;\n    }\n}",
+  "sourcePath": "/Users/prateekyammanuru/work/interviews/bosch/Diamond_Supply_Chain/contracts/contracts/DiamondRegistry.sol",
+  "ast": {
+    "absolutePath": "/Users/prateekyammanuru/work/interviews/bosch/Diamond_Supply_Chain/contracts/contracts/DiamondRegistry.sol",
+    "exportedSymbols": {
+      "DiamondRegistry": [
+        589
+      ]
+    },
+    "id": 590,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 541,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "absolutePath": "/Users/prateekyammanuru/work/interviews/bosch/Diamond_Supply_Chain/contracts/contracts/Controller.sol",
+        "file": "./Controller.sol",
+        "id": 542,
+        "nodeType": "ImportDirective",
+        "scope": 590,
+        "sourceUnit": 295,
+        "src": "25:26:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 589,
+        "linearizedBaseContracts": [
+          589
+        ],
+        "name": "DiamondRegistry",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 544,
+            "name": "controller",
+            "nodeType": "VariableDeclaration",
+            "scope": 589,
+            "src": "84:21:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_Controller_$294",
+              "typeString": "contract Controller"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 543,
+              "name": "Controller",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 294,
+              "src": "84:10:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Controller_$294",
+                "typeString": "contract Controller"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 548,
+            "name": "registry",
+            "nodeType": "VariableDeclaration",
+            "scope": 589,
+            "src": "111:43:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+              "typeString": "mapping(bytes32 => address)"
+            },
+            "typeName": {
+              "id": 547,
+              "keyType": {
+                "id": 545,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "119:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "111:27:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+                "typeString": "mapping(bytes32 => address)"
+              },
+              "valueType": {
+                "id": 546,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "130:7:3",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 555,
+              "nodeType": "Block",
+              "src": "254:154:3",
+              "statements": [
+                {
+                  "id": 554,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "400:1:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 556,
+            "name": "onlyValidProcessingCenter",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 553,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 550,
+                  "name": "processingCenter",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 556,
+                  "src": "200:24:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 549,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "200:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 552,
+                  "name": "processingCenterId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 556,
+                  "src": "226:26:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 551,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "226:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "199:54:3"
+            },
+            "src": "165:243:3",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 566,
+              "nodeType": "Block",
+              "src": "439:52:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 564,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 559,
+                      "name": "controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 544,
+                      "src": "449:10:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Controller_$294",
+                        "typeString": "contract Controller"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 561,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1461,
+                            "src": "473:3:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 562,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "473:10:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        ],
+                        "id": 560,
+                        "name": "Controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 294,
+                        "src": "462:10:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_Controller_$294_$",
+                          "typeString": "type(contract Controller)"
+                        }
+                      },
+                      "id": 563,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "462:22:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Controller_$294",
+                        "typeString": "contract Controller"
+                      }
+                    },
+                    "src": "449:35:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Controller_$294",
+                      "typeString": "contract Controller"
+                    }
+                  },
+                  "id": 565,
+                  "nodeType": "ExpressionStatement",
+                  "src": "449:35:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 567,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 557,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "429:2:3"
+            },
+            "returnParameters": {
+              "id": 558,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "439:0:3"
+            },
+            "scope": 589,
+            "src": "418:73:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 587,
+              "nodeType": "Block",
+              "src": "679:55:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 585,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 581,
+                        "name": "registry",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 548,
+                        "src": "689:8:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+                          "typeString": "mapping(bytes32 => address)"
+                        }
+                      },
+                      "id": 583,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 582,
+                        "name": "_diamondId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 569,
+                        "src": "698:10:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "689:20:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 584,
+                      "name": "_diamondAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 573,
+                      "src": "712:15:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "689:38:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 586,
+                  "nodeType": "ExpressionStatement",
+                  "src": "689:38:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 588,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 576,
+                      "name": "msg",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1461,
+                      "src": "646:3:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_message",
+                        "typeString": "msg"
+                      }
+                    },
+                    "id": 577,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "sender",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "646:10:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 578,
+                    "name": "_processingCenterId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 571,
+                    "src": "658:19:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  }
+                ],
+                "id": 579,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 575,
+                  "name": "onlyValidProcessingCenter",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 556,
+                  "src": "620:25:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$_t_bytes32_$",
+                    "typeString": "modifier (address,bytes32)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "620:58:3"
+              }
+            ],
+            "name": "addDiamond",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 574,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 569,
+                  "name": "_diamondId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 588,
+                  "src": "521:18:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 568,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "521:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 571,
+                  "name": "_processingCenterId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 588,
+                  "src": "541:27:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 570,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "541:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 573,
+                  "name": "_diamondAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 588,
+                  "src": "570:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 572,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "570:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "520:74:3"
+            },
+            "returnParameters": {
+              "id": 580,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "679:0:3"
+            },
+            "scope": 589,
+            "src": "501:233:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 590,
+        "src": "53:683:3"
+      }
+    ],
+    "src": "0:736:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/prateekyammanuru/work/interviews/bosch/Diamond_Supply_Chain/contracts/contracts/DiamondRegistry.sol",
+    "exportedSymbols": {
+      "DiamondRegistry": [
+        589
+      ]
+    },
+    "id": 590,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 541,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "absolutePath": "/Users/prateekyammanuru/work/interviews/bosch/Diamond_Supply_Chain/contracts/contracts/Controller.sol",
+        "file": "./Controller.sol",
+        "id": 542,
+        "nodeType": "ImportDirective",
+        "scope": 590,
+        "sourceUnit": 295,
+        "src": "25:26:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 589,
+        "linearizedBaseContracts": [
+          589
+        ],
+        "name": "DiamondRegistry",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 544,
+            "name": "controller",
+            "nodeType": "VariableDeclaration",
+            "scope": 589,
+            "src": "84:21:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_Controller_$294",
+              "typeString": "contract Controller"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 543,
+              "name": "Controller",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 294,
+              "src": "84:10:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Controller_$294",
+                "typeString": "contract Controller"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 548,
+            "name": "registry",
+            "nodeType": "VariableDeclaration",
+            "scope": 589,
+            "src": "111:43:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+              "typeString": "mapping(bytes32 => address)"
+            },
+            "typeName": {
+              "id": 547,
+              "keyType": {
+                "id": 545,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "119:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "111:27:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+                "typeString": "mapping(bytes32 => address)"
+              },
+              "valueType": {
+                "id": 546,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "130:7:3",
+                "stateMutability": "nonpayable",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 555,
+              "nodeType": "Block",
+              "src": "254:154:3",
+              "statements": [
+                {
+                  "id": 554,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "400:1:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 556,
+            "name": "onlyValidProcessingCenter",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 553,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 550,
+                  "name": "processingCenter",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 556,
+                  "src": "200:24:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 549,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "200:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 552,
+                  "name": "processingCenterId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 556,
+                  "src": "226:26:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 551,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "226:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "199:54:3"
+            },
+            "src": "165:243:3",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 566,
+              "nodeType": "Block",
+              "src": "439:52:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 564,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 559,
+                      "name": "controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 544,
+                      "src": "449:10:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Controller_$294",
+                        "typeString": "contract Controller"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 561,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1461,
+                            "src": "473:3:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 562,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "473:10:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        ],
+                        "id": 560,
+                        "name": "Controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 294,
+                        "src": "462:10:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_Controller_$294_$",
+                          "typeString": "type(contract Controller)"
+                        }
+                      },
+                      "id": 563,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "462:22:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Controller_$294",
+                        "typeString": "contract Controller"
+                      }
+                    },
+                    "src": "449:35:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Controller_$294",
+                      "typeString": "contract Controller"
+                    }
+                  },
+                  "id": 565,
+                  "nodeType": "ExpressionStatement",
+                  "src": "449:35:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 567,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 557,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "429:2:3"
+            },
+            "returnParameters": {
+              "id": 558,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "439:0:3"
+            },
+            "scope": 589,
+            "src": "418:73:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 587,
+              "nodeType": "Block",
+              "src": "679:55:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 585,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 581,
+                        "name": "registry",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 548,
+                        "src": "689:8:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_bytes32_$_t_address_$",
+                          "typeString": "mapping(bytes32 => address)"
+                        }
+                      },
+                      "id": 583,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 582,
+                        "name": "_diamondId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 569,
+                        "src": "698:10:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "689:20:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 584,
+                      "name": "_diamondAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 573,
+                      "src": "712:15:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "689:38:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 586,
+                  "nodeType": "ExpressionStatement",
+                  "src": "689:38:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 588,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 576,
+                      "name": "msg",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1461,
+                      "src": "646:3:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_message",
+                        "typeString": "msg"
+                      }
+                    },
+                    "id": 577,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "sender",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "646:10:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  {
+                    "argumentTypes": null,
+                    "id": 578,
+                    "name": "_processingCenterId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 571,
+                    "src": "658:19:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  }
+                ],
+                "id": 579,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 575,
+                  "name": "onlyValidProcessingCenter",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 556,
+                  "src": "620:25:3",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$_t_bytes32_$",
+                    "typeString": "modifier (address,bytes32)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "620:58:3"
+              }
+            ],
+            "name": "addDiamond",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 574,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 569,
+                  "name": "_diamondId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 588,
+                  "src": "521:18:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 568,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "521:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 571,
+                  "name": "_processingCenterId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 588,
+                  "src": "541:27:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 570,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "541:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 573,
+                  "name": "_diamondAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 588,
+                  "src": "570:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 572,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "570:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "520:74:3"
+            },
+            "returnParameters": {
+              "id": 580,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "679:0:3"
+            },
+            "scope": 589,
+            "src": "501:233:3",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 590,
+        "src": "53:683:3"
+      }
+    ],
+    "src": "0:736:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {
+    "1548850288589": {
+      "events": {},
+      "links": {},
+      "address": "0xF6E2A335c2bF41325FcA290232394B3F79A53037",
+      "transactionHash": "0x650b0a554174590af8721b0531c7b7d05eb96ac25d8bdc918d433440348b9ebe"
+    },
+    "1548860622165": {
+      "events": {},
+      "links": {},
+      "address": "0x7C28Bf78408073821Ae9f432036E59635eBE6C4a",
+      "transactionHash": "0x29a2e193c357e31a1442eac28bd34831716ba1cb751b56a3eb9c746454d940b7"
+    },
+    "1548860871745": {
+      "events": {},
+      "links": {},
+      "address": "0x2365F84Db2D9e9eAB12B2D30f0785cD832e2ABd3",
+      "transactionHash": "0x7f2e88841516c0b2ab554d50d85332f45ba7ca62964d17228f73d168c200ed0f"
+    },
+    "1548862608984": {
+      "events": {},
+      "links": {},
+      "address": "0x83f676E41c1ea15F53B4480815beDF9987F64D32",
+      "transactionHash": "0x9c3903aadc3b903649414ab200158dbf489a78c6de5b376a389d38f905656c50"
+    },
+    "1548902043499": {
+      "events": {},
+      "links": {},
+      "address": "0xD13ebb5C39fB00C06122827E1cbD389930C9E0E3",
+      "transactionHash": "0xbea00261ee409de6a6b0c41543d6a9fd599f5921a654561b19115b4c9703ce69"
+    },
+    "1548904246813": {
+      "events": {},
+      "links": {},
+      "address": "0x59d3631c86BbE35EF041872d502F218A39FBa150",
+      "transactionHash": "0x2aa0f34a4109fd13c6fb071c347818f4f9d91ce0063812453cfda74e3106b47b"
+    },
+    "1548904430976": {
+      "events": {},
+      "links": {},
+      "address": "0xEC5d4F247aF81A843612eb1371CBCfa88b762119",
+      "transactionHash": "0x028ee34a4505432ad8771cbea50baf39e67c310a440d686087ebd1b9b26a3077"
+    },
+    "1548908150064": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0x9f609fec860619c8095a0d0c57a05c20804884556b53809e2acdaf2bbc99342a"
+    },
+    "1548908272889": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0x9f609fec860619c8095a0d0c57a05c20804884556b53809e2acdaf2bbc99342a"
+    },
+    "1548909272088": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xee508364a420e01c237b59a75484fa8a9427b70682d32e1f64758711dfdf9cc7"
+    },
+    "1548911055154": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xee508364a420e01c237b59a75484fa8a9427b70682d32e1f64758711dfdf9cc7"
+    },
+    "1548912195584": {
+      "events": {},
+      "links": {},
+      "address": "0x59d3631c86BbE35EF041872d502F218A39FBa150",
+      "transactionHash": "0xddf2970178be57db30210e0fd9fc81f6518f26e473e60fd43e03b1f52c9ebb4d"
+    },
+    "1548913155802": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xe1ceb11a475d8fc4a638de65bf40b782b0c3618dc1574398a6ea84235761d407"
+    },
+    "1548914034793": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0x9ccca087a3e4a99cae1cffd0939a43de5ce56fa1790f1308877d17504c94966c"
+    },
+    "1548914360709": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0x9ccca087a3e4a99cae1cffd0939a43de5ce56fa1790f1308877d17504c94966c"
+    },
+    "1548917052376": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0x596a5d5b2dccd3fd85e9c27579a334217e79ab0b9d77303a82c41ab9a8aeb44a"
+    },
+    "1548917980563": {
+      "events": {},
+      "links": {},
+      "address": "0x59d3631c86BbE35EF041872d502F218A39FBa150",
+      "transactionHash": "0x07e0f2141b2dfb996d5a9bf589e1d9b1bf7a032aefdb606b67ccd3105f4ef3b2"
+    },
+    "1548918768279": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xe4a00e79eb4785753e495c7ea06e42f427fb188a0d402fd138e5f38aa7d2fd9b"
+    },
+    "1548918850801": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xe4a00e79eb4785753e495c7ea06e42f427fb188a0d402fd138e5f38aa7d2fd9b"
+    },
+    "1548918942339": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xe4a00e79eb4785753e495c7ea06e42f427fb188a0d402fd138e5f38aa7d2fd9b"
+    },
+    "1548937263935": {
+      "events": {},
+      "links": {},
+      "address": "0x630589690929E9cdEFDeF0734717a9eF3Ec7Fcfe",
+      "transactionHash": "0x4908cbc48e2d59a394d8683f896a1bd481e8c4df41b42fc838c0171d555e24c0"
+    },
+    "1548937646115": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xe4a00e79eb4785753e495c7ea06e42f427fb188a0d402fd138e5f38aa7d2fd9b"
+    },
+    "1548938565445": {
+      "events": {},
+      "links": {},
+      "address": "0x59d3631c86BbE35EF041872d502F218A39FBa150",
+      "transactionHash": "0x07e0f2141b2dfb996d5a9bf589e1d9b1bf7a032aefdb606b67ccd3105f4ef3b2"
+    },
+    "1548940744464": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xeeeebe9812b69bec1a65e6e5aa8ee5907553ba9726d5035daa0a703665a3d3d5"
+    },
+    "1548942001042": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0x81addc3a4ad527afd215116e6570c1f4fc108fff42790bddd65beb6e47afb264"
+    },
+    "1548942616378": {
+      "events": {},
+      "links": {},
+      "address": "0x59d3631c86BbE35EF041872d502F218A39FBa150",
+      "transactionHash": "0xbde5bf2bc8ec67492fbcf844bded8fe2745f9528492ca57e8bf1aa552a05356c"
+    },
+    "1548944989484": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0x30ccf7e2faf2b899d4f8ee51b15c7f8d744defb5d563c5f12bff67ab3a3eded3"
+    },
+    "1548947331266": {
+      "events": {},
+      "links": {},
+      "address": "0x0290FB167208Af455bB137780163b7B7a9a10C16",
+      "transactionHash": "0x3a68b328db4c262469a1a1eb0aa44e658c43545bfdd4f6b501b8bfe593c2a5de"
+    },
+    "1548953880200": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xc28bccc3fbbcca2bf417381188e0344aad5fc58e2630b6d54d865afac1280e54"
+    },
+    "1548957764689": {
+      "events": {},
+      "links": {},
+      "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24",
+      "transactionHash": "0xc28bccc3fbbcca2bf417381188e0344aad5fc58e2630b6d54d865afac1280e54"
+    }
+  },
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2019-01-31T18:02:59.700Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

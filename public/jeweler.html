@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="controller.css">
+    <title>Jeweler</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Jeweler</h1>
+        <div class="accordion" id="jewelerActions">
+            <div class="card">
+                <div class="card-header" id="verifyDiamond">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#verifyDiamondCollapse" aria-expanded="true" aria-controls="verifyDiamondCollapse">
+                    Verify Diamond
+                    </button>
+                </h2>
+                </div>
+            
+                <div id="verifyDiamondCollapse" class="collapse show" aria-labelledby="verifyDiamond" data-parent="#jewelerActions">
+                <div class="card-body">
+                    <div class="inputWrapper">
+                        <span class="inputTag">Diamond ID  </span>
+                        <input type="text" name="diamondId" id="verifyDiamondId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Jeweler ID  </span>
+                        <input type="text" name="jewelerId" id="verifyJewelerId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">isVerified ?  </span>
+                        <input type="text" name="isVerified" id="isVerified">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">User  </span>
+                        <input type="text" name="userAddress" id="verifyUserAddress">
+                    </div>
+                    <div class="inputWrapper">
+                        <button class="btn btn-success" id="verifier">Verify Diamond</button>
+                    </div>
+                    <div class="response">
+                        <p id="verifyMsg"></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="sellDiamond">
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#sellDiamondCollapse" aria-expanded="false" aria-controls="sellDiamondCollapse">
+                    Sell Diamond
+                    </button>
+                </h2>
+                </div>
+                <div id="sellDiamondCollapse" class="collapse" aria-labelledby="sellDiamond" data-parent="#jewelerActions">
+                <div class="card-body">
+                    <div class="inputWrapper">
+                        <span class="inputTag">Diamond ID  </span>
+                        <input type="text" name="diamondId" id="sellDiamondId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">Jeweler ID  </span>
+                        <input type="text" name="jewelerId" id="sellJewelerId">
+                    </div>
+                    <div class="inputWrapper">
+                        <span class="inputTag">User  </span>
+                        <input type="text" name="userAddress" id="sellUserAddress">
+                    </div>
+                    <div class="inputWrapper">
+                        <button class="btn btn-success" id="diamondSeller">Sell Diamond</button>
+                    </div>
+                    <div class="response">
+                        <p id="sellMsg"></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="lib/jquery-3.3.1.js"></script>
+<script src="lib/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="jeweler.js"></script>
+</html>
